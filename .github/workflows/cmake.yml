@@ -36,5 +36,6 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
     - name: BuidEXE
+      working-directory: ${{github.workspace}}/bin
     
-      run: g++ bin/main.cpp -o uint2022Test
+      run: g++ main.cpp -o uint2022Test
