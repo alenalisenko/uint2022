@@ -81,7 +81,7 @@ uint2022_t operator*(const uint2022_t& lhs, const uint2022_t& rhs) {
   for (int i = 0; i < uint2022_t::SIZE; i++) {
     int carry = 0;
     for (int j = 0; j < uint2022_t::SIZE - i; j++) {
-      long long cur = result.digits[i + j] + lhs.digits[i] * 1ll * rhs.digits[j] + carry;
+      long long cur = result.digits[i + j] + static_cast<long long>(lhs.digits[i]) * rhs.digits[j] + carry;
       result.digits[i + j] = int32_t(cur % uint2022_t::BASE);
       carry = int(cur / uint2022_t::BASE);
     }
